@@ -13,4 +13,7 @@
 }
 .liste .rabais {
   color: red;
+}
+.liste .solde {
+  color: rgb(255, 0, 255);
 }/*# sourceMappingURL=liste.component.css.map */

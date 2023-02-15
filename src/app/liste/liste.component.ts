@@ -21,10 +21,15 @@ export class ListeComponent {
         id: 1+index,
         rabais : !(index % 3) 
       };
-    }
-    )
-    console.log(this.produits);
+    })
+
     
+    console.log(this.produits);
+  }
+
+  estEnSolde(unProduit:IProduit){ //recoit un truc de type IProduit
+
+    return (unProduit.prix < 15 && unProduit.rabais)
   }
 
 }

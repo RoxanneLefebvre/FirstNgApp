@@ -6,6 +6,8 @@
         <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.prix < 15" class="pas_cher">pas cher</span>
         <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.rabais" class="rabais">En Rabais pour vrai</span>
         </p>
+
+        <h2 class="solde" *ngIf="estEnSolde(unProduit)">SOLDE</h2>
         
     </article>
 
