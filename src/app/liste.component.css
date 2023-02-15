@@ -8,6 +8,9 @@
   width: 200px;
   border: 5px dashed black;
 }
+.liste .pas_cher {
+  color: rgb(59, 24, 212);
+}
 .liste .rabais {
   color: red;
 }/*# sourceMappingURL=liste.component.css.map */
