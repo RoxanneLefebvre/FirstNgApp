@@ -1,9 +1,11 @@
-<section>
+<section class="liste">
     <h1>Mes Produits</h1>
-    <article *ngFor = "let unProduit of produits">
+    <article class="unProduit" *ngFor = "let unProduit of produits">
         <p>Nom: {{unProduit.nom}}</p>
         <p>Fabriquant: {{unProduit.fabriquant}}</p>
-        <p>Prix: {{unProduit.prix}}</p>
+        <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.prix < 15" class="rabais">En Rabais</span>
+        </p>
+        
     </article>
 
 </section>

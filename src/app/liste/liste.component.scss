@@ -1,0 +1,16 @@
+.liste{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    .unProduit{
+        height: 150px;
+        width: 200px;
+        border: 5px dashed black;
+
+    }
+
+    .rabais{
+        color: red;
+    }
+}

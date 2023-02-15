@@ -4,5 +4,6 @@ export interface IProduit {
     nom:String;
     prix:Number;
     fabriquant:String;
+    rabais?:Boolean;
 
 }
