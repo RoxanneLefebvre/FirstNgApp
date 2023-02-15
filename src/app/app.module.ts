@@ -8,6 +8,7 @@ import { ProduitComponent } from './produit/produit.component';
 import { DetailComponent } from './detail/detail.component';
 import { EnteteComponent } from './entete/entete.component';
 import { NonTrouveeComponent } from './non-trouvee/non-trouvee.component';
+import { ListeComponent } from './liste/liste.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NonTrouveeComponent } from './non-trouvee/non-trouvee.component';
     ProduitComponent,
     DetailComponent,
     EnteteComponent,
-    NonTrouveeComponent
+    NonTrouveeComponent,
+    ListeComponent
   ],
   imports: [
     BrowserModule,
