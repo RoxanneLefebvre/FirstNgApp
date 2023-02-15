@@ -6,9 +6,9 @@ import { ListeComponent } from './liste/liste.component';
 import { NonTrouveeComponent } from './non-trouvee/non-trouvee.component';
 
 const routes: Routes = [
-  {path : "/", component:AccueilComponent},
-  {path : "/produit", component:ListeComponent},
-  {path : "/produit/:id", component:DetailComponent},
+  {path : "", component:AccueilComponent},
+  {path : "produit", component:ListeComponent},
+  {path : "produit/:id", component:DetailComponent},
   {path : "**", component:NonTrouveeComponent},
 
 ];
