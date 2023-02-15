@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './entete.component.html',
   styleUrls: ['./entete.component.scss']
 })
-export class EnteteComponent {
 
+export class EnteteComponent {
+  titre:String = "Administration"
 }
