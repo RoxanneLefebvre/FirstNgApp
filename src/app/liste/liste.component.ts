@@ -8,6 +8,7 @@ import { IProduit} from '../iproduit'
 })
 export class ListeComponent {
   produits:Array<IProduit>;
+  editable:boolean= false;
   //produits:Object[];
 
 
@@ -30,6 +31,14 @@ export class ListeComponent {
   estEnSolde(unProduit:IProduit){ //recoit un truc de type IProduit
 
     return (unProduit.prix < 15 && unProduit.rabais)
+  }
+
+  verifEditable(unProduit:IProduit):boolean{ //recoit un truc de type IProduit
+    let res:boolean= false;
+    if(this.editable || unProduit.estEditable){
+      res = true;
+    }
+    return res;
   }
 
 }

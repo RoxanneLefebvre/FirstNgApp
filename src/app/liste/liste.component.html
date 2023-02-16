@@ -1,24 +1,49 @@
 <section class="liste">
     <h1>Mes Produits</h1>
-    <p>Est editable? <input type="checkbox"></p>
+    <p>Est editable? <input type="checkbox" [(ngModel)]="editable"></p>
+    <app-produit [(peutEditer)]="editable" [produit]="unProduit" *ngFor = "let unProduit of produits"></app-produit>
+    
 
 
-    <article class="unProduit" *ngFor = "let unProduit of produits">
-        <p>Nom: {{unProduit.nom}}</p>
-        <p>Nom: <input type="text" [(ngModel)]="unProduit.nom"></p>
-        <p>Fabriquant: {{unProduit.fabriquant}}</p>
+
+    
+
+
+</section>
+
+
+    <!-- <article class="unProduit" *ngFor = "let unProduit of produits">
+        <p *ngIf="!editable">Nom: {{unProduit.nom}}</p>
+        <p *ngIf="editable">Nom: <input type="text" [(ngModel)]="unProduit.nom"></p>
+        <p *ngIf="!editable">Fabriquant: {{unProduit.fabriquant}}</p>
+        <p *ngIf="editable">Fabriquant: <input type="text" [(ngModel)]="unProduit.fabriquant"></p>
         <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.prix < 15" class="pas_cher">pas cher</span>
         <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.rabais" class="rabais">En Rabais pour vrai</span>
         </p>
 
         <h2 class="solde" *ngIf="estEnSolde(unProduit)">SOLDE !!</h2>
         
-    </article>
+    </article> -->
+    <!-- <ng-container *ngFor = "let unProduit of produits">
+        <article *ngIf="!verifEditable(unProduit); else template" class="unProduit" >
+            <p>Nom: {{unProduit.nom}}</p>
 
-    <!-- <ng-template>
-        <article class="unProduit" *ngfor = " let unProduit of produits">
-            <p>Nom: <input type="text" value="{{unProduit}}"></p>
+            <p>Fabriquant: {{unProduit.fabriquant}}</p>
+
+            <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.prix < 15" class="pas_cher">pas cher</span>
+            <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.rabais" class="rabais">En Rabais pour vrai</span>
+            </p>
+
+            <h2 class="solde" *ngIf="estEnSolde(unProduit)">SOLDE !!</h2>
+            
         </article>
-    </ng-template> -->
-
-</section>
+        <p>Est editable? <input type="checkbox" [(ngModel)]="unProduit.estEditable"></p>
+        <ng-template #template>
+            <article class="unProduit">
+                <p >Nom: {{unProduit.nom}}</p>
+                <p >Nom: <input type="text" [(ngModel)]="unProduit.nom"></p>
+                <p >Fabriquant: {{unProduit.fabriquant}}</p>
+                <p >Fabriquant: <input type="text" [(ngModel)]="unProduit.fabriquant"></p>
+            </article>
+        </ng-template>
+    </ng-container> -->
