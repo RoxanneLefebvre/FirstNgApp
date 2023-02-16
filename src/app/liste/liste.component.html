@@ -1,5 +1,6 @@
 <section class="liste">
     <h1>Mes Produits</h1>
+    <p>Est editable? <input type="checkbox"></p>
     <article class="unProduit" *ngFor = "let unProduit of produits">
         <p>Nom: {{unProduit.nom}}</p>
         <p>Fabriquant: {{unProduit.fabriquant}}</p>
@@ -7,7 +8,7 @@
         <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.rabais" class="rabais">En Rabais pour vrai</span>
         </p>
 
-        <h2 class="solde" *ngIf="estEnSolde(unProduit)">SOLDE</h2>
+        <h2 class="solde" *ngIf="estEnSolde(unProduit)">SOLDE !!</h2>
         
     </article>
 

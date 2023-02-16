@@ -1,0 +1,23 @@
+:host{ //fait reference a la balise app entete
+
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    padding: 10px;
+    align-items: center; 
+
+    a{
+        margin-left: 10px;
+        text-decoration: none;
+        &.active {
+            
+            font-weight: bold;
+            
+        }
+    }
+
+}
