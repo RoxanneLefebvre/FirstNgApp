@@ -1,8 +1,11 @@
 <section class="liste">
     <h1>Mes Produits</h1>
     <p>Est editable? <input type="checkbox"></p>
+
+
     <article class="unProduit" *ngFor = "let unProduit of produits">
         <p>Nom: {{unProduit.nom}}</p>
+        <p>Nom: <input type="text" [(ngModel)]="unProduit.nom"></p>
         <p>Fabriquant: {{unProduit.fabriquant}}</p>
         <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.prix < 15" class="pas_cher">pas cher</span>
         <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.rabais" class="rabais">En Rabais pour vrai</span>
@@ -11,5 +14,11 @@
         <h2 class="solde" *ngIf="estEnSolde(unProduit)">SOLDE !!</h2>
         
     </article>
+
+    <!-- <ng-template>
+        <article class="unProduit" *ngfor = " let unProduit of produits">
+            <p>Nom: <input type="text" value="{{unProduit}}"></p>
+        </article>
+    </ng-template> -->
 
 </section>
