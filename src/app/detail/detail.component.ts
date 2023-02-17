@@ -18,8 +18,8 @@ export class DetailComponent {
 
     this.route.params.subscribe((params)=>{
       this.bieroServ.getUneBiere(params["id"]).subscribe((biere:any)=>{
-        this.biere = biere.data
-        console.log(this.biere);
+
+        this.biere = biere.data;
         
       })
       

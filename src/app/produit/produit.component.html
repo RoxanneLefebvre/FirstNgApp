@@ -1,6 +1,6 @@
 
         <article *ngIf="!peutEditer; else template" class="unProduit" >
-            <p>Nom: {{produit.nom}}</p>
+            <p>Nom : <a routerLink="/produit/{{produit.id_biere}}">{{produit.nom}}</a></p>
             <p>Brasserie: {{produit.brasserie}}</p>
 
         </article>
