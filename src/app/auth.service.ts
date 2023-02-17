@@ -4,7 +4,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  etatConnexion:boolean = false;
+  private etatConnexion:boolean = false;
+  
 
-  constructor() { }
+  constructor() {
+    
+   }
+
+   setConnexion(etat:boolean){
+    this.etatConnexion = etat;
+  }
+
+
+
+  getConnexion():boolean{
+    return this.etatConnexion
+
+  }
 }

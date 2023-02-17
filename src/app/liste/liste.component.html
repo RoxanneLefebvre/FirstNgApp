@@ -1,12 +1,12 @@
 <section class="liste">
     <h1>Mes Produits</h1>
-    <p>Est editable? <input type="checkbox" [(ngModel)]="editable"></p>
+    <p>Est editable? <input (change)="verifConnexion()" type="checkbox" [(ngModel)]="editable"></p>
     <app-produit [(peutEditer)]="editable" [produit]="unProduit" *ngFor = "let unProduit of produits"></app-produit>
     
 
 
 
-    <!-- change()="verifConnexion()" suposer rajouter ca mais fonctionne pas   --> 
+
 
 
 </section>

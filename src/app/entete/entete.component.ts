@@ -14,7 +14,7 @@ export class EnteteComponent {
 
   constructor(private authServ:AuthService){
     console.log(authServ);
-    this.estConnecter = this.authServ.etatConnexion;
+    this.estConnecter = this.authServ.getConnexion();
     
     
 
@@ -22,7 +22,7 @@ export class EnteteComponent {
 
   seConnecter(){
     this.estConnecter = !this.estConnecter;
-    this.authServ.etatConnexion =this.estConnecter;
+    this.authServ.setConnexion(this.estConnecter);
     if(this.estConnecter){
       this.msgConnecter = "Se deconnecter";
     }else{

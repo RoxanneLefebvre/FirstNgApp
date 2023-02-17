@@ -31,7 +31,7 @@ export class ListeComponent {
   }
 
   verifConnexion(){
-    if(!this.authServ.etatConnexion && this.editable == true){
+    if(!this.authServ.getConnexion() && this.editable == true){
       this.editable = false;
     }
   }
