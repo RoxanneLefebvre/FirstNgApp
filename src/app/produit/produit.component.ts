@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { IBiere } from '../ibiere';
 import { IProduit } from '../iproduit';
 
 @Component({
@@ -9,7 +10,7 @@ import { IProduit } from '../iproduit';
 })
 export class ProduitComponent{
 
-  @Input() produit:IProduit; //decorateur function qui ajout de linformation sur une proprieter
+  @Input() produit:IBiere; //decorateur function qui ajout de linformation sur une proprieter
   @Input() peutEditer:boolean;
   estConnecte:boolean = false;
   @Output() peutEditerChange = new EventEmitter<boolean>(); // sert au two way binding

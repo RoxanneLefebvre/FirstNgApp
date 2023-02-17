@@ -1,7 +1,7 @@
 
         <article *ngIf="!peutEditer; else template" class="unProduit" >
             <p>Nom: {{produit.nom}}</p>
-            <p>Fabriquant: {{produit.fabriquant}}</p>
+            <p>Brasserie: {{produit.brasserie}}</p>
 
         </article>
 
@@ -9,7 +9,7 @@
         <ng-template #template>
             <article class="unProduit">
                 <p >Nom: <input type="text" [(ngModel)]="produit.nom"></p>
-                <p >Fabriquant: <input type="text" [(ngModel)]="produit.fabriquant"></p>
+                <p >Brasserie: <input type="text" [(ngModel)]="produit.brasserie"></p>
             </article>
         </ng-template>
 

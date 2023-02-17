@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { BieroService } from '../biero.service';
+import { IBiere } from '../ibiere';
 import { IProduit} from '../iproduit'
 
 @Component({
@@ -8,19 +10,19 @@ import { IProduit} from '../iproduit'
   styleUrls: ['./liste.component.scss']
 })
 export class ListeComponent implements OnInit{
-  produits:Array<IProduit>;
+  produits:Array<IBiere>;
   editable:boolean= false;
   estConnecte:boolean =false;
   //produits:Object[];
 
 
-  constructor(private authServ:AuthService){
+  constructor(private authServ:AuthService, private bieroServ:BieroService){
     // this.produits = [] // doit dire cest quoi produit, sinon aller dans tsconfig.js et ajouter la ligne "strictPropertyInitialization": false,
     this.produits = [];
 
 
 
-    
+
     // this.produits = [...Array(5)].map((item, index)=>{ //creer un tableau de 5 truc pour tester
     //   return {
     //     nom : "element" + index, 
@@ -45,6 +47,14 @@ export class ListeComponent implements OnInit{
       }
       
     });
+
+    this.bieroServ.getBieres().subscribe((listeBiere)=>{
+      this.produits = listeBiere.data;
+      
+
+    });
+    
+    
     
   }
 
