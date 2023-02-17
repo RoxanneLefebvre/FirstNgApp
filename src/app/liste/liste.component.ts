@@ -28,7 +28,12 @@ export class ListeComponent {
     
     console.log(this.produits);
     
+    this.authServ.statusConnexion().subscribe((etat:boolean)=>{
+      console.log(etat);
+      
+    });
   }
+
 
   verifConnexion(){
     if(!this.authServ.getConnexion() && this.editable == true){
