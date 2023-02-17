@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { IProduit} from '../iproduit'
 
@@ -7,7 +7,7 @@ import { IProduit} from '../iproduit'
   templateUrl: './liste.component.html',
   styleUrls: ['./liste.component.scss']
 })
-export class ListeComponent {
+export class ListeComponent implements OnInit{
   produits:Array<IProduit>;
   editable:boolean= false;
   estConnecte:boolean =false;
@@ -16,19 +16,28 @@ export class ListeComponent {
 
   constructor(private authServ:AuthService){
     // this.produits = [] // doit dire cest quoi produit, sinon aller dans tsconfig.js et ajouter la ligne "strictPropertyInitialization": false,
-    this.produits = [...Array(5)].map((item, index)=>{ //creer un tableau de 5 truc pour tester
-      return {
-        nom : "element" + index, 
-        fabriquant: "Brasserie xyz",
-        prix: (10+index*2), 
-        id: 1+index,
-        rabais : !(index % 3) 
-      };
-    })
+    this.produits = [];
+
+
 
     
-    console.log(this.produits);
+    // this.produits = [...Array(5)].map((item, index)=>{ //creer un tableau de 5 truc pour tester
+    //   return {
+    //     nom : "element" + index, 
+    //     fabriquant: "Brasserie xyz",
+    //     prix: (10+index*2), 
+    //     id: 1+index,
+    //     rabais : !(index % 3) 
+    //   };
+    // })
+
     
+    //console.log(this.produits);
+    
+    
+  }
+
+  ngOnInit(): void {
     this.authServ.statusConnexion().subscribe((etat:boolean)=>{
       this.estConnecte = etat;
       if(this.estConnecte === false){
@@ -36,6 +45,7 @@ export class ListeComponent {
       }
       
     });
+    
   }
 
 
