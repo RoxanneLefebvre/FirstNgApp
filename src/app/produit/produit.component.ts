@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { IProduit } from '../iproduit';
 
 @Component({
@@ -10,11 +11,23 @@ export class ProduitComponent{
 
   @Input() produit:IProduit; //decorateur function qui ajout de linformation sur une proprieter
   @Input() peutEditer:boolean;
+  estConnecte:boolean = false;
   @Output() peutEditerChange = new EventEmitter<boolean>(); // sert au two way binding
 
+constructor(private authServ:AuthService){
 
+  this.authServ.statusConnexion().subscribe((etat)=>{
+    this.estConnecte =  etat
+    if(etat===false){
+      this.peutEditer = false;
+    }
+  })
+}
   changeEditable(){
 
+    if(!this.estConnecte){
+      this.peutEditer = false;
+    }
     this.peutEditerChange.emit(this.peutEditer);
 
   }

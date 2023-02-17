@@ -10,6 +10,7 @@ import { IProduit} from '../iproduit'
 export class ListeComponent {
   produits:Array<IProduit>;
   editable:boolean= false;
+  estConnecte:boolean =false;
   //produits:Object[];
 
 
@@ -29,7 +30,10 @@ export class ListeComponent {
     console.log(this.produits);
     
     this.authServ.statusConnexion().subscribe((etat:boolean)=>{
-      console.log(etat);
+      this.estConnecte = etat;
+      if(this.estConnecte === false){
+        this.editable = false;
+      }
       
     });
   }
