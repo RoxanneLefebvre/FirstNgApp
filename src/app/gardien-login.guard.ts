@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class GardienLoginGuard implements CanActivate {
   estConnecte:boolean= false;
-  constructor(private authServ:AuthService){
+  constructor(private authServ:AuthService, private router:Router){
     this.authServ.statusConnexion().subscribe((etat)=>{
       this.estConnecte = etat;
     })
@@ -21,7 +21,13 @@ export class GardienLoginGuard implements CanActivate {
     if(this.estConnecte){
       valide = true;
     }
-    return true;
+
+    if(valide){
+      return true;
+    }else{
+
+      return this.router.parseUrl('/');
+    }
   }
   
 }
