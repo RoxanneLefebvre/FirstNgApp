@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { IProduit} from '../iproduit'
 
 @Component({
@@ -12,7 +13,7 @@ export class ListeComponent {
   //produits:Object[];
 
 
-  constructor(){
+  constructor(private authServ:AuthService){
     // this.produits = [] // doit dire cest quoi produit, sinon aller dans tsconfig.js et ajouter la ligne "strictPropertyInitialization": false,
     this.produits = [...Array(5)].map((item, index)=>{ //creer un tableau de 5 truc pour tester
       return {
@@ -26,6 +27,13 @@ export class ListeComponent {
 
     
     console.log(this.produits);
+    
+  }
+
+  verifConnexion(){
+    if(!this.authServ.etatConnexion && this.editable == true){
+      this.editable = false;
+    }
   }
 
   estEnSolde(unProduit:IProduit){ //recoit un truc de type IProduit
