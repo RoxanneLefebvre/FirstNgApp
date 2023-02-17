@@ -1,18 +1,30 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private etatConnexion:boolean = false;
-  
+
+  estConnecte:BehaviorSubject<boolean>;
+  estConnecte$:Observable<boolean>
+
 
   constructor() {
+    this.estConnecte = new BehaviorSubject<boolean>(this.etatConnexion);
+    this.estConnecte$ = this.estConnecte.asObservable();
     
-   }
+  }
 
-   setConnexion(etat:boolean){
+  
+  setConnexion(etat:boolean){
     this.etatConnexion = etat;
+    this.estConnecte.next(this.etatConnexion);
+  }
+
+  statusConnexion():Observable<boolean>{
+    return this.estConnecte;
   }
 
 
