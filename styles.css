@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 * {
   margin: 0;
+}
+
+footer {
+  background-color: rgb(120, 120, 207);
+  height: 10vh;
 }/*# sourceMappingURL=styles.css.map */

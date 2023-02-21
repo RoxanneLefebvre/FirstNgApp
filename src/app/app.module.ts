@@ -9,8 +9,9 @@ import { DetailComponent } from './detail/detail.component';
 import { EnteteComponent } from './entete/entete.component';
 import { NonTrouveeComponent } from './non-trouvee/non-trouvee.component';
 import { ListeComponent } from './liste/liste.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

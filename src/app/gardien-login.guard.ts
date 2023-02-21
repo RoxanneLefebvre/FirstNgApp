@@ -11,10 +11,16 @@ export class GardienLoginGuard implements CanActivate {
   constructor(private authServ:AuthService, private router:Router){
     this.authServ.statusConnexion().subscribe((etat)=>{
       this.estConnecte = etat;
+      console.log(this.estConnecte);
+      if(this.estConnecte === false){
+        this.router.navigate(['/'])
+      }
+      
+      
     })
   }
+
   canActivate(
-    
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       let valide = false;
