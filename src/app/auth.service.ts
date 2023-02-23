@@ -20,7 +20,7 @@ export class AuthService {
   
   setConnexion(etat:boolean){
     this.etatConnexion = etat;
-    this.estConnecte.next(this.etatConnexion);
+    this.estConnecte.next(this.etatConnexion); //setter , set la nouvelle variable mavertie quelle change
   }
 
   statusConnexion():Observable<boolean>{

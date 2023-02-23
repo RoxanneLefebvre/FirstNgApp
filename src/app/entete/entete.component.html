@@ -1,16 +1,19 @@
-<header>
+<mat-toolbar color="primary">
+
     <nav>
         <div>
-            <h1><a routerLink="">{{titre}}</a></h1>
+            <a routerLink="">{{titre}}</a>
         </div>
         <div>
             <!-- routerLink empeche de le rechargement des page -->
             <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</a> 
             <a routerLink="/produit" routerLinkActive="active">liste des produit</a>
-
+    
             
-               <button (click)="seConnecter()">{{msgConnecter}}</button>
+            <button mat-raised-button (click)="seConnecter()">{{msgConnecter}}</button>
             
         </div>
     </nav>
-</header>
+</mat-toolbar>
+
+
