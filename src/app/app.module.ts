@@ -12,10 +12,18 @@ import { ListeComponent } from './liste/liste.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table'; 
+import {MatSortModule} from '@angular/material/sort';
+import {DialogComponent} from './dialog/dialog.component';
+
+
+
 
 
 @NgModule({
@@ -26,8 +34,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     DetailComponent,
     EnteteComponent,
     NonTrouveeComponent,
-    ListeComponent
+    ListeComponent,
+    DialogComponent,
   ],
+
+  entryComponents:[DialogComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,6 +51,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatIconModule,
     MatDialogModule,
     MatToolbarModule,
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

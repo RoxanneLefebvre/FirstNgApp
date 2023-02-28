@@ -4,6 +4,8 @@
 
 mat-toolbar {
     position: fixed;
+    padding: 5px;
+    
 
 }
 
@@ -16,9 +18,15 @@ nav{
 
     a{
         margin-left: 10px;
-        
+        color: white;
+
     }
     button{
         margin-left: 10px;
     }
+}
+
+mat-toolbar-row{
+    display: flex;
+    justify-content: end;
 }

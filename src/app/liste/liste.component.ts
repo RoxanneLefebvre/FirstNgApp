@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, ViewChild} from '@angular/core';
 import { AuthService } from '../auth.service';
 import { BieroService } from '../biero.service';
 import { IBiere } from '../ibiere';
 import { IProduit} from '../iproduit'
+
+import {MatSort, Sort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+
+
 
 @Component({
   selector: 'app-liste',
@@ -13,32 +21,25 @@ export class ListeComponent implements OnInit{
   produits:Array<IBiere>;
   editable:boolean= false;
   estConnecte:boolean =false;
+  columnsToDisplay:string[] = ["id_biere", "nom", "brasserie", "date_ajout", "date_modif", "delete", "edit"];
   //produits:Object[];
-
-
-  constructor(private authServ:AuthService, private bieroServ:BieroService){
+  dataSource: MatTableDataSource<IBiere>;
+  
+  @ViewChild(MatSort) sort: MatSort;
+  
+  constructor(private authServ:AuthService, private bieroServ:BieroService, public dialog: MatDialog){
     // this.produits = [] // doit dire cest quoi produit, sinon aller dans tsconfig.js et ajouter la ligne "strictPropertyInitialization": false,
     this.produits = [];
-
-
-
-
-    // this.produits = [...Array(5)].map((item, index)=>{ //creer un tableau de 5 truc pour tester
-    //   return {
-    //     nom : "element" + index, 
-    //     fabriquant: "Brasserie xyz",
-    //     prix: (10+index*2), 
-    //     id: 1+index,
-    //     rabais : !(index % 3) 
-    //   };
-    // })
-
+    this.dataSource = new MatTableDataSource(this.produits);
     
-    //console.log(this.produits);
     
     
   }
 
+  openDialog() {
+    this.dialog.open(DialogComponent);
+  }
+  
   ngOnInit(): void {
     this.authServ.statusConnexion().subscribe((etat:boolean)=>{
       this.estConnecte = etat;
@@ -48,16 +49,31 @@ export class ListeComponent implements OnInit{
       
     });
 
-    this.bieroServ.getBieres().subscribe((listeBiere)=>{
-      this.produits = listeBiere.data;
-      
-
-    });
+    
     
     
     
   }
+  
+  ngAfterViewInit() {
+    this.bieroServ.getBieres().subscribe((listeBiere)=>{
+      this.produits = listeBiere.data;
+      this.dataSource.data = this.produits;
+      this.dataSource.sort = this.sort;
+      
+    });
+ }
 
+ applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  if (this.dataSource.paginator) {
+    this.dataSource.paginator.firstPage();
+  }
+}
+
+ 
 
   verifConnexion(){
     if(!this.authServ.getConnexion() && this.editable == true){
@@ -77,5 +93,8 @@ export class ListeComponent implements OnInit{
     }
     return res;
   }
+
+
+
 
 }

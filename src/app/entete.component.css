@@ -1,5 +1,6 @@
 mat-toolbar {
   position: fixed;
+  padding: 5px;
 }
 
 nav {
@@ -11,7 +12,13 @@ nav {
 }
 nav a {
   margin-left: 10px;
+  color: white;
 }
 nav button {
   margin-left: 10px;
+}
+
+mat-toolbar-row {
+  display: flex;
+  justify-content: end;
 }/*# sourceMappingURL=entete.component.css.map */

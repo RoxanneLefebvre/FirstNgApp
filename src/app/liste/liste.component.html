@@ -1,49 +1,49 @@
-<section class="liste">
+
     <h1>Mes Produits</h1>
     <p *ngIf="estConnecte">Est editable? <input (change)="verifConnexion()" type="checkbox" [(ngModel)]="editable"></p>
-    <app-produit [(peutEditer)]="editable" [produit]="unProduit" *ngFor = "let unProduit of produits"></app-produit>
+     <!-- <app-produit [(peutEditer)]="editable" [produit]="unProduit" *ngFor = "let unProduit of produits"></app-produit>  -->
+     <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <mat-table [dataSource]='dataSource' matSort>
+        <ng-container matColumnDef="id_biere">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> id </mat-header-cell>
+            <mat-cell *matCellDef="let unProduit"> {{unProduit.id_biere}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="nom">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+            <mat-cell *matCellDef="let unProduit"><a routerLink='/produit/{{unProduit.id_biere}}'> {{unProduit.nom}}</a> </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="brasserie">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> brasserie </mat-header-cell>
+            <mat-cell *matCellDef="let unProduit"> {{unProduit.brasserie}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="date_ajout">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> date d'ajout </mat-header-cell>
+            <mat-cell *matCellDef="let unProduit"> {{unProduit.date_ajout}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="date_modif">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> date de modification </mat-header-cell>
+            <mat-cell *matCellDef="let unProduit"> {{unProduit.date_modif}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef> delete </mat-header-cell>
+            <mat-cell *matCellDef=""><mat-icon (click)="openDialog()">delete</mat-icon></mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef> edit </mat-header-cell>
+            <mat-cell *matCellDef=""><mat-icon>edit</mat-icon></mat-cell>
+          </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></mat-row>
+
+          
+    </mat-table>
+    
     
 
 
 
-
-
-
-</section>
-
-
-    <!-- <article class="unProduit" *ngFor = "let unProduit of produits">
-        <p *ngIf="!editable">Nom: {{unProduit.nom}}</p>
-        <p *ngIf="editable">Nom: <input type="text" [(ngModel)]="unProduit.nom"></p>
-        <p *ngIf="!editable">Fabriquant: {{unProduit.fabriquant}}</p>
-        <p *ngIf="editable">Fabriquant: <input type="text" [(ngModel)]="unProduit.fabriquant"></p>
-        <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.prix < 15" class="pas_cher">pas cher</span>
-        <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.rabais" class="rabais">En Rabais pour vrai</span>
-        </p>
-
-        <h2 class="solde" *ngIf="estEnSolde(unProduit)">SOLDE !!</h2>
-        
-    </article> -->
-    <!-- <ng-container *ngFor = "let unProduit of produits">
-        <article *ngIf="!verifEditable(unProduit); else template" class="unProduit" >
-            <p>Nom: {{unProduit.nom}}</p>
-
-            <p>Fabriquant: {{unProduit.fabriquant}}</p>
-
-            <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.prix < 15" class="pas_cher">pas cher</span>
-            <p>Prix: {{unProduit.prix}} <span *ngIf="unProduit.rabais" class="rabais">En Rabais pour vrai</span>
-            </p>
-
-            <h2 class="solde" *ngIf="estEnSolde(unProduit)">SOLDE !!</h2>
-            
-        </article>
-        <p>Est editable? <input type="checkbox" [(ngModel)]="unProduit.estEditable"></p>
-        <ng-template #template>
-            <article class="unProduit">
-                <p >Nom: {{unProduit.nom}}</p>
-                <p >Nom: <input type="text" [(ngModel)]="unProduit.nom"></p>
-                <p >Fabriquant: {{unProduit.fabriquant}}</p>
-                <p >Fabriquant: <input type="text" [(ngModel)]="unProduit.fabriquant"></p>
-            </article>
-        </ng-template>
-    </ng-container> -->
