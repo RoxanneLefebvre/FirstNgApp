@@ -15,12 +15,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table'; 
 import {MatSortModule} from '@angular/material/sort';
 import {DialogComponent} from './dialog/dialog.component';
+import { AjouterComponent } from './ajouter/ajouter.component';
+import { MatDialogConfig } from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 
 
 
@@ -35,10 +38,11 @@ import {DialogComponent} from './dialog/dialog.component';
     EnteteComponent,
     NonTrouveeComponent,
     ListeComponent,
-    DialogComponent,
+    AjouterComponent,
+    DialogComponent
   ],
 
-  entryComponents:[DialogComponent],
+  entryComponents:[],
 
   imports: [
     BrowserModule,
@@ -54,8 +58,9 @@ import {DialogComponent} from './dialog/dialog.component';
     MatInputModule,
     MatTableModule,
     MatSortModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,11 @@
+<form [formGroup]="ajouterForm">
+    <div class="card">
+        <p>Nom :<input formControlName="nom"></p>
+        <p>Brasserie :<input formControlName="brasserie"></p>
+        <p>Description :<textarea formControlName="description"></textarea></p>
+        <div class="btn-div">
+            <button (click)="ajouter()">Ajouter</button>
+            <button (click)="annuler()">Annuler</button>
+        </div>
+    </div>
+</form>

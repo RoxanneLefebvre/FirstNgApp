@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import { AuthService } from '../auth.service';
 import { BieroService } from '../biero.service';
@@ -7,8 +7,9 @@ import { IProduit} from '../iproduit'
 
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 
@@ -36,8 +37,17 @@ export class ListeComponent implements OnInit{
     
   }
 
-  openDialog() {
-    this.dialog.open(DialogComponent);
+  openDialog(id:number) {
+    let dialogEffacer = this.dialog.open(DialogComponent, {
+    data: { id: id },
+    });
+
+    dialogEffacer.afterClosed().subscribe(()=>{
+      this.bieroServ.getBieres().subscribe((listeBiere)=>{
+        this.dataSource.data = listeBiere.data;
+      });
+      
+    })
   }
   
   ngOnInit(): void {

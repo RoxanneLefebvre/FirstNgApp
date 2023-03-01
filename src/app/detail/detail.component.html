@@ -6,3 +6,16 @@
     <p>Description:{{biere?.description}}</p>
     <p></p>
 </article>
+
+
+<form [formGroup]="modifForm">
+    <div class="card">
+        <p>Nom :<input formControlName="nom"></p>
+        <p>Brasserie :<input formControlName="brasserie"></p>
+        <p>Description :<textarea formControlName="description"></textarea></p>
+        <div class="btn-div">
+            <button (click)="modifier()" [disabled]="!modifForm.dirty || !modifForm.valid">Modifier</button>
+            <button (click)="annuler()" [disabled]="!modifForm.dirty">Annuler</button>
+        </div>
+    </div>
+</form>

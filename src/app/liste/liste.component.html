@@ -1,6 +1,9 @@
 
     <h1>Mes Produits</h1>
-    <p *ngIf="estConnecte">Est editable? <input (change)="verifConnexion()" type="checkbox" [(ngModel)]="editable"></p>
+    <div class="button-container">
+      <button mat-button color="primary"><a routerLink='/ajouter/'>Ajouter une biere</a></button>
+
+    </div>
      <!-- <app-produit [(peutEditer)]="editable" [produit]="unProduit" *ngFor = "let unProduit of produits"></app-produit>  -->
      <mat-form-field>
       <mat-label>Filter</mat-label>
@@ -14,7 +17,7 @@
           </ng-container>
           <ng-container matColumnDef="nom">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
-            <mat-cell *matCellDef="let unProduit"><a routerLink='/produit/{{unProduit.id_biere}}'> {{unProduit.nom}}</a> </mat-cell>
+            <mat-cell *matCellDef="let unProduit"> {{unProduit.nom}} </mat-cell>
           </ng-container>
           <ng-container matColumnDef="brasserie">
             <mat-header-cell *matHeaderCellDef mat-sort-header> brasserie </mat-header-cell>
@@ -30,11 +33,11 @@
           </ng-container>
           <ng-container matColumnDef="delete">
             <mat-header-cell *matHeaderCellDef> delete </mat-header-cell>
-            <mat-cell *matCellDef=""><mat-icon (click)="openDialog()">delete</mat-icon></mat-cell>
+            <mat-cell *matCellDef="let unProduit"><mat-icon (click)="openDialog(unProduit.id_biere)">delete</mat-icon></mat-cell>
           </ng-container>
           <ng-container matColumnDef="edit">
             <mat-header-cell *matHeaderCellDef> edit </mat-header-cell>
-            <mat-cell *matCellDef=""><mat-icon>edit</mat-icon></mat-cell>
+            <mat-cell *matCellDef="let unProduit"><mat-icon ><a routerLink='/produit/{{unProduit.id_biere}}'>edit</a></mat-icon></mat-cell>
           </ng-container>
 
         <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
