@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BieroService } from '../biero.service';
 import { IBiere } from '../ibiere';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dialog',
@@ -11,7 +12,7 @@ import { IBiere } from '../ibiere';
 export class DialogComponent {
   biere:IBiere;
   id:number;
-  constructor(private bieroServ:BieroService, @Inject(MAT_DIALOG_DATA) public data:any, public dialogEffacer: MatDialogRef<DialogComponent>){
+  constructor(private bieroServ:BieroService, @Inject(MAT_DIALOG_DATA) public data:any, public dialogEffacer: MatDialogRef<DialogComponent>, private snackBar: MatSnackBar){
     this.id = data.id;
     console.log(data);
     
@@ -24,7 +25,10 @@ export class DialogComponent {
   delete(){
     console.log(this.id)
     this.bieroServ.effacerBiere( this.id ).subscribe((retour)=>{
-      // après avoir effacer la bière... que faire? Sauf que je suis un dialogue et non pas un page de liste...
+      
+      this.snackBar.open(' la biere a ete effacer', '',{
+        duration:4000
+      });
       
     });
 

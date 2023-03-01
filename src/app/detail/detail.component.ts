@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BieroService } from '../biero.service';
 import { IBiere } from '../ibiere';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatExpansionModule} from '@angular/material/expansion'; 
+
 
 @Component({
   selector: 'app-detail',
@@ -14,7 +17,7 @@ export class DetailComponent {
   @Input() produit:IBiere;
   modifForm:FormGroup;
 
-  constructor(private route:ActivatedRoute, private bieroServ:BieroService){
+  constructor(private route:ActivatedRoute, private bieroServ:BieroService, private snackBar: MatSnackBar){
     this.modifForm = new FormGroup({
       nom:new FormControl(),
       brasserie:new FormControl(),
@@ -57,6 +60,9 @@ export class DetailComponent {
       this.biere.nom = unProduit.nom;
       this.biere.brasserie = unProduit.brasserie;
       this.biere.description = unProduit.description;
+      this.snackBar.open(' la biere a modifier avec success', '',{
+        duration:4000
+      });
       
     });
 

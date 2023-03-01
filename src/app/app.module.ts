@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AccueilComponent } from './accueil/accueil.component';
 import { ProduitComponent } from './produit/produit.component';
 import { DetailComponent } from './detail/detail.component';
 import { EnteteComponent } from './entete/entete.component';
@@ -24,6 +23,7 @@ import {DialogComponent} from './dialog/dialog.component';
 import { AjouterComponent } from './ajouter/ajouter.component';
 import { MatDialogConfig } from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import {MatExpansionModule} from '@angular/material/expansion'; 
 
 
 
@@ -32,7 +32,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
-    AccueilComponent,
     ProduitComponent,
     DetailComponent,
     EnteteComponent,
@@ -58,7 +57,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatInputModule,
     MatTableModule,
     MatSortModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule,
   ],
   providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent]

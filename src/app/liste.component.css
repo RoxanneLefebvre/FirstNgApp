@@ -3,7 +3,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 10px;
-  padding-top: 128px;
 }
 :host .unProduit {
   height: 150px;
@@ -18,4 +17,11 @@
 }
 :host .solde {
   color: rgb(255, 0, 255);
+}
+
+.button-container {
+  display: flex;
+  justify-content: end;
+  width: auto;
+  padding-right: 20px;
 }/*# sourceMappingURL=liste.component.css.map */

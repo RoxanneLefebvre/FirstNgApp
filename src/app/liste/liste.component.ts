@@ -51,13 +51,13 @@ export class ListeComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    this.authServ.statusConnexion().subscribe((etat:boolean)=>{
-      this.estConnecte = etat;
-      if(this.estConnecte === false){
-        this.editable = false;
-      }
+    // this.authServ.statusConnexion().subscribe((etat:boolean)=>{
+    //   this.estConnecte = etat;
+    //   if(this.estConnecte === false){
+    //     this.editable = false;
+    //   }
       
-    });
+    // });
 
     
     
@@ -85,24 +85,21 @@ export class ListeComponent implements OnInit{
 
  
 
-  verifConnexion(){
-    if(!this.authServ.getConnexion() && this.editable == true){
-      this.editable = false;
-    }
-  }
+  // verifConnexion(){
+  //   if(!this.authServ.getConnexion() && this.editable == true){
+  //     this.editable = false;
+  //   }
+  // }
 
-  estEnSolde(unProduit:IProduit){ //recoit un truc de type IProduit
+  
 
-    return (unProduit.prix < 15 && unProduit.rabais)
-  }
-
-  verifEditable(unProduit:IProduit):boolean{ //recoit un truc de type IProduit
-    let res:boolean= false;
-    if(this.editable || unProduit.estEditable){
-      res = true;
-    }
-    return res;
-  }
+  // verifEditable(unProduit:IProduit):boolean{ //recoit un truc de type IProduit
+  //   let res:boolean= false;
+  //   if(this.editable || unProduit.estEditable){
+  //     res = true;
+  //   }
+  //   return res;
+  // }
 
 
 

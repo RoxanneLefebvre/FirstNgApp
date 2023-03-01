@@ -20,12 +20,12 @@ export class ProduitComponent implements OnInit{
 
 constructor(private authServ:AuthService, private bieroServ:BieroService){
 
-  this.authServ.statusConnexion().subscribe((etat)=>{
-    this.estConnecte =  etat
-    if(etat===false){
-      this.peutEditer = false;
-    }
-  })
+  // this.authServ.statusConnexion().subscribe((etat)=>{
+  //   this.estConnecte =  etat
+  //   if(etat===false){
+  //     this.peutEditer = false;
+  //   }
+  // })
 }
 
 ngOnInit(): void {
@@ -38,14 +38,14 @@ ngOnInit(): void {
 }
 
 
-  changeEditable(){
+  // changeEditable(){
 
-    if(!this.estConnecte){
-      this.peutEditer = false;
-    }
-    this.peutEditerChange.emit(this.peutEditer);
+  //   if(!this.estConnecte){
+  //     this.peutEditer = false;
+  //   }
+  //   this.peutEditerChange.emit(this.peutEditer);
 
-  }
+  // }
 
   annuler(){
     this.modifForm.controls["nom"].setValue(this.produit.nom)

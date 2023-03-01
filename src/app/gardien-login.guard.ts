@@ -9,15 +9,15 @@ import { AuthService } from './auth.service';
 export class GardienLoginGuard implements CanActivate {
   estConnecte:boolean= false;
   constructor(private authServ:AuthService, private router:Router){
-    this.authServ.statusConnexion().subscribe((etat)=>{
-      this.estConnecte = etat;
-      console.log(this.estConnecte);
-      if(this.estConnecte === false){
-        this.router.navigate(['/'])
-      }
+    // this.authServ.statusConnexion().subscribe((etat)=>{
+    //   this.estConnecte = etat;
+    //   console.log(this.estConnecte);
+    //   if(this.estConnecte === false){
+    //     this.router.navigate(['/'])
+    //   }
       
       
-    })
+    // })
   }
 
   canActivate(

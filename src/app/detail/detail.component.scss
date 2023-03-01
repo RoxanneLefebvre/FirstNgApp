@@ -5,3 +5,29 @@
     gap: 10px;
     padding-top: 128px;
 }
+
+.article_detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    align-items: center;
+    
+    
+}
+
+.detail{
+    border: 1px solid rgba(128, 128, 128, 0.692);
+    border-radius: 15px;
+    padding: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.detail img {
+    min-width: 100px;
+    max-width: 120px;
+    
+}

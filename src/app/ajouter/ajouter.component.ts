@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BieroService } from '../biero.service';
 import { IBiere } from '../ibiere';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { RouterModule, Routes, Router } from '@angular/router';
 
 @Component({
   selector: 'app-ajouter',
@@ -14,7 +16,7 @@ export class AjouterComponent {
   @Input() produit:IBiere;
   ajouterForm:FormGroup;
 
-  constructor(private route:ActivatedRoute, private bieroServ:BieroService){
+  constructor(private route:ActivatedRoute, private bieroServ:BieroService, private snackBar: MatSnackBar, private router:Router){
     this.ajouterForm = new FormGroup({
       nom:new FormControl(),
       brasserie:new FormControl(),
@@ -28,10 +30,10 @@ export class AjouterComponent {
     let unProduit:IBiere = this.ajouterForm.value;
     
     this.bieroServ.ajouterBiere(unProduit).subscribe((retour)=>{
-      console.log(retour);
-      /*this.biere.nom = unProduit.nom;
-      this.biere.brasserie = unProduit.brasserie;
-      this.biere.description = unProduit.description;*/
+      this.router.navigate(['/']);
+      this.snackBar.open(' La biere a ete ajouter avec success', '',{
+        duration:5000
+      });
       
     });
 

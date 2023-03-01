@@ -2,31 +2,29 @@
 
 }
 
-mat-toolbar {
-    position: fixed;
-    padding: 5px;
-    
-
-}
 
 nav{
     display: flex;
     flex-direction: row;
-    gap: 10px;
     justify-content: space-between;
-    width: 100%;
+    padding-left: 10px;
+
+
+    background-color: rgb(95, 18, 184);
 
     a{
         margin-left: 10px;
+        margin-right: 20px;
         color: white;
+        
 
     }
     button{
         margin-left: 10px;
     }
-}
 
-mat-toolbar-row{
-    display: flex;
-    justify-content: end;
+    .lien_nav{
+        display: flex;
+        align-items: center;
+    }
 }
