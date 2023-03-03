@@ -10,24 +10,37 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent {
-  biere:IBiere;
-  id:number;
+  biere:IBiere; //declaration de biere de type biere
+  id:number; //declaration de id type number
+
+  /**
+   * 
+   * @param bieroServ service biero ou se trouve les fetch
+   * @param data permet le data entre la boite de dialog et la function delete()
+   * @param dialogEffacer boite de dialog pour etre sur de vouloir delete
+   * @param snackBar material io snackbar, pour les message de success
+   */
   constructor(private bieroServ:BieroService, @Inject(MAT_DIALOG_DATA) public data:any, public dialogEffacer: MatDialogRef<DialogComponent>, private snackBar: MatSnackBar){
-    this.id = data.id;
-    console.log(data);
+    this.id = data.id; //data recu du dialog dans this.id pour function delete()
     
   }
 
+  /**
+   * function d'annulation si on ne veux pas delete ca ferme le modal
+   */
   onNoClick(): void {
     this.dialogEffacer.close();
   }
 
+  /**
+   * function de supression dune biere ouvre snackbar si success
+   * pas de redirection car deja sur page liste
+   */
   delete(){
-    console.log(this.id)
     this.bieroServ.effacerBiere( this.id ).subscribe((retour)=>{
       
       this.snackBar.open(' la biere a ete effacer', '',{
-        duration:4000
+        duration:5000
       });
       
     });

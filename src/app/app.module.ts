@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProduitComponent } from './produit/produit.component';
+
 import { DetailComponent } from './detail/detail.component';
 import { EnteteComponent } from './entete/entete.component';
 import { NonTrouveeComponent } from './non-trouvee/non-trouvee.component';
@@ -24,6 +24,7 @@ import { AjouterComponent } from './ajouter/ajouter.component';
 import { MatDialogConfig } from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import {MatExpansionModule} from '@angular/material/expansion'; 
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 
 
 
@@ -32,7 +33,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
-    ProduitComponent,
     DetailComponent,
     EnteteComponent,
     NonTrouveeComponent,
@@ -59,6 +59,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSortModule,
     MatSnackBarModule,
     MatExpansionModule,
+    MatFormFieldModule,
   ],
   providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
   bootstrap: [AppComponent]

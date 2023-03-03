@@ -16,8 +16,8 @@
             <mat-cell *matCellDef="let unProduit"> {{unProduit.id_biere}} </mat-cell>
           </ng-container>
           <ng-container matColumnDef="nom">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
-            <mat-cell *matCellDef="let unProduit"> {{unProduit.nom}} </mat-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Nom</mat-header-cell>
+            <mat-cell *matCellDef="let unProduit"> <a routerLink='/produit/{{unProduit.id_biere}}'>{{unProduit.nom}}</a></mat-cell>
           </ng-container>
           <ng-container matColumnDef="brasserie">
             <mat-header-cell *matHeaderCellDef mat-sort-header> brasserie </mat-header-cell>

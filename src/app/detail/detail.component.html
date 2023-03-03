@@ -1,3 +1,45 @@
+
+
+    <form [formGroup]="modifForm">
+      <mat-form-field appearance="fill">
+      <mat-label>Nom:</mat-label>
+          <input matInput formControlName="nom">
+          <mat-error *ngIf="modifForm.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Brasserie:</mat-label>
+            <input matInput formControlName="brasserie">
+            <mat-error *ngIf="modifForm.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Description:</mat-label>
+            <input matInput formControlName="description">
+            <mat-error *ngIf="modifForm.invalid">{{getErrorMessage()}}</mat-error>
+
+        </mat-form-field>
+
+
+          <div class="btn-div">
+              <button mat-raised-button (click)="modifier()" [disabled]="!modifForm.dirty || !modifForm.valid">Modifier</button>
+              <button mat-button color="warn" (click)="annuler()">Annuler</button>
+              
+          </div>
+        
+  </form> 
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
 <article class="article_detail">
     <!-- <pre>{{biere | json}}</pre> affiche mon obkect en format json--> 
     <h2>Detail</h2>
@@ -19,29 +61,5 @@
        
 
 
-<mat-accordion>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Modifier la biere
-        </mat-panel-title>
-        <mat-panel-description>
-          ouvrez le panneau pour modifier
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      
-      <form [formGroup]="modifForm">
-        <div class="card">
-            <p>Nom :<input formControlName="nom"></p>
-            <p>Brasserie :<input formControlName="brasserie"></p>
-            <p>Description :<textarea formControlName="description"></textarea></p>
-            <div class="btn-div">
-                <button (click)="modifier()" [disabled]="!modifForm.dirty || !modifForm.valid">Modifier</button>
-                <button (click)="annuler()" [disabled]="!modifForm.dirty">Annuler</button>
-            </div>
-        </div>
-    </form> 
 
-    </mat-expansion-panel>
-  </mat-accordion>
   

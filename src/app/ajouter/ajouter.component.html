@@ -1,11 +1,28 @@
-<form [formGroup]="ajouterForm">
-    <div class="card">
-        <p>Nom :<input formControlName="nom"></p>
-        <p>Brasserie :<input formControlName="brasserie"></p>
-        <p>Description :<textarea formControlName="description"></textarea></p>
-        <div class="btn-div">
-            <button (click)="ajouter()">Ajouter</button>
-            <button (click)="annuler()">Annuler</button>
-        </div>
-    </div>
-</form>
+
+<div class="form_container">
+    <h2>Ajouter un Produit</h2>
+    <form [formGroup]="ajouterForm">
+        <mat-form-field appearance="fill">
+        <mat-label>Nom:</mat-label>
+            <input matInput formControlName="nom" required>
+            <mat-error *ngIf="ajouterForm.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Brasserie:</mat-label>
+              <input matInput formControlName="brasserie" required>
+              <mat-error *ngIf="ajouterForm.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Description:</mat-label>
+              <input matInput formControlName="description" required>
+              <mat-error *ngIf="ajouterForm.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+  
+  
+            <div class="btn-div">
+                <button mat-raised-button (click)="ajouter()" [disabled]="!ajouterForm.valid">Ajouter</button>
+                <button mat-button color="warn" (click)="annuler()">Annuler</button>
+            </div>
+          
+    </form> 
+</div>

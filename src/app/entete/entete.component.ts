@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+
 
 @Component({
   selector: 'app-entete',
@@ -7,27 +7,20 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./entete.component.scss']
 })
 
+/**
+ * cette  classe affiche le menu de nav si connexion se serait ici ( a rajouter si besoin)
+ */
 export class EnteteComponent {
   titre:String = "Administration"
-  // msgConnecter:string = "Se connecter"
-  // estConnecter:boolean = true;
 
-  constructor(private authServ:AuthService){
+
+  constructor(){
     
-    // this.estConnecter = this.authServ.getConnexion();
+    
     
     
 
   }
 
-  // seConnecter(){
-  //   this.estConnecter = !this.estConnecter;
-  //   this.authServ.setConnexion(this.estConnecter);
-  //   if(this.estConnecter){
-  //     this.msgConnecter = "Se deconnecter";
-  //   }else{
-  //     this.msgConnecter = "Se connecter";
-  //   }
-  //   console.log(this.authServ);
-  // }
+
 }

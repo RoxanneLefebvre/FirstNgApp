@@ -1,33 +1,93 @@
-:host{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding-top: 128px;
+@media screen and (min-width:835px) {
+        :host{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 10px;
+        
+
+    }
+
+    .article_detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px;
+        align-items: center;
+        
+        
+        
+    }
+
+    .detail{
+        border: 1px solid rgba(128, 128, 128, 0.692);
+        border-radius: 15px;
+        padding: 20px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 100ch;
+        
+        
+    }
+
+    .detail img {
+        min-width: 70px;
+        max-width: 70px;
+        
+    }
+
+
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn-div{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
 }
 
-.article_detail {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
-    align-items: center;
-    
-    
-}
+@media screen and (max-width:834px) {
+    .detail img {
+        min-width: 20px;
+        max-width: 20px;
+        
+    }
 
-.detail{
-    border: 1px solid rgba(128, 128, 128, 0.692);
-    border-radius: 15px;
-    padding: 20px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-}
+    form {
+        display: flex;
+        flex-direction: column;
+    }
 
-.detail img {
-    min-width: 100px;
-    max-width: 120px;
+    .article_detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        align-items: center;
+        
+        
+        
+    }
+    .detail{
+        border: 1px solid rgba(128, 128, 128, 0.692);
+        border-radius: 15px;
+        padding: 10px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 40ch;
+        
+        
+    }
+    .btn-div{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
     
 }

@@ -6,6 +6,10 @@ import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * jai supprimer le gardien mais je le laisse ici pour plus tard ( a faire..)
+ */
 export class GardienLoginGuard implements CanActivate {
   estConnecte:boolean= false;
   constructor(private authServ:AuthService, private router:Router){

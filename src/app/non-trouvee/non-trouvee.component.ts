@@ -5,6 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './non-trouvee.component.html',
   styleUrls: ['./non-trouvee.component.scss']
 })
+/**
+ * affiche une page html derreur 404 si non permis ou
+ */
 export class NonTrouveeComponent {
 
 }
